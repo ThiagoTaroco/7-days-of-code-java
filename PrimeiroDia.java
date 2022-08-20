@@ -17,6 +17,8 @@ public class PrimeiroDia {
 	
 		System.out.println(response.statusCode());
 		System.out.println(response.body());
+		
+		System.out.println("teste");
 	}
 
 }
