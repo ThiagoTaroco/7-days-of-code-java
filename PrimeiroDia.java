@@ -8,16 +8,18 @@ import java.net.http.HttpResponse;
 
 public class PrimeiroDia {
 
-	private static final String API_KEY = "sua api key";
-
 	public static void main(String[] args) throws IOException, InterruptedException {
 
+		String apiKey = "api key";
+		URI apiIMDB = URI.create("https://imdb-api.com/en/API/Top250TVs/" + apiKey);
+		
 		HttpClient client = HttpClient.newHttpClient();
-		HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://imdb-api.com/API/Top250Movies/" + API_KEY)).GET().build();
+		HttpRequest request = HttpRequest.newBuilder().uri(apiIMDB).GET().build();
 		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-	
+		String json = response.body();
+		
 		System.out.println(response.statusCode());
-		System.out.println(response.body());
+		System.out.println(json.substring(0, 1000));
 
 	}
 
