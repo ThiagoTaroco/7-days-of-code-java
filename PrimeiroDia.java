@@ -19,7 +19,7 @@ public class PrimeiroDia {
 		String json = response.body();
 		
 		System.out.println(response.statusCode());
-		System.out.println(json.substring(0, 1000));
+		System.out.println(json);
 
 	}
 
